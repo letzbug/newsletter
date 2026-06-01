@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Newsletter</title>
+  <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+  <div class="app-shell">
+    <nav class="sidebar" aria-label="Navigation">
+      <div class="sidebar-logo">U</div>
+      <button class="sidebar-btn active" type="button"><span>▦</span><small>Cours</small></button>
+      <button class="sidebar-btn" type="button"><span>▤</span><small>Blocs</small></button>
+      <button class="sidebar-btn" type="button"><span>▧</span><small>Contenu</small></button>
+      <button class="sidebar-btn" type="button"><span>⚙</span><small>Design</small></button>
+      <div class="sidebar-space"></div>
+      <div class="sidebar-avatar">FG</div>
+    </nav>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-logo">U</div>
+          <h1>Newsletter</h1>
+        </div>
+        <div class="actions">
+          <button id="previewBtn" class="button secondary" type="button">👁 Aperçu</button>
+          <button id="saveBtn" class="button secondary" type="button">💾 Enregistrer</button>
+          <button id="exportBtn" class="button primary" type="button">⬇ Exporter HTML</button>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <section class="editor-column">
+          <section class="card">
+            <div class="card-title-row">
+              <div>
+                <h2>1. Sélectionner les cours UniPop</h2>
+                <p id="jsonStatus">Chargement des données…</p>
+              </div>
+              <span class="pill">UniPop uniquement</span>
+            </div>
+
+            <div class="filters">
+              <input id="searchInput" type="search" placeholder="Rechercher un cours, formateur, catégorie…">
+              <select id="categoryFilter"><option value="">Toutes catégories</option></select>
+              <select id="newFilter"><option value="all">Tous les cours</option><option value="new">Nouveaux uniquement</option></select>
+              <label class="date-filter-label" for="newSince">Nouveaux depuis</label>
+              <input id="newSince" type="date">
+            </div>
+
+            <div class="list-toolbar">
+              <span id="courseCount">0 cours disponibles</span>
+              <select id="sortSelect">
+                <option value="date">Trier par : Date</option>
+                <option value="title">Trier par : Titre</option>
+                <option value="category">Trier par : Catégorie</option>
+              </select>
+            </div>
+
+            <div id="coursesList" class="courses-list"></div>
+
+            <div class="selection-line">
+              <span id="selectedCount">0 cours sélectionné</span>
+              <button id="clearSelection" type="button">Tout désélectionner</button>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>2. Ajouter un bloc</h2>
+            <div class="block-buttons">
+              <button data-block="text" type="button"><strong>T</strong><span>Texte</span></button>
+              <button data-block="imageText" type="button"><strong>▧</strong><span>Image + Texte</span></button>
+              <button data-block="news" type="button"><strong>▤</strong><span>Actualité</span></button>
+              <button data-block="event" type="button"><strong>☷</strong><span>Événement</span></button>
+              <button data-block="quote" type="button"><strong>❝</strong><span>Citation</span></button>
+              <button data-block="button" type="button"><strong>▭</strong><span>Bouton</span></button>
+            </div>
+            <div id="blocksEditor" class="blocks-editor"></div>
+          </section>
+
+          <section class="card">
+            <h2>3. Paramètres</h2>
+            <label for="newsletterTitle">Titre de la newsletter</label>
+            <input id="newsletterTitle" value="Les nouveautés UniPop">
+            <label for="newsletterSubtitle">Sous-titre</label>
+            <input id="newsletterSubtitle" value="Découvrez nos prochains cours et actualités.">
+          </section>
+        </section>
+
+        <section class="preview-column">
+          <h2 class="preview-heading">Aperçu de la newsletter</h2>
+          <div id="newsletterPreview" class="newsletter-preview"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="exportDialog">
+    <div class="dialog-header">
+      <h2>HTML Mailjet</h2>
+      <button id="closeDialog" type="button">×</button>
+    </div>
+    <p>Copie ce code dans Mailjet en mode HTML.</p>
+    <textarea id="exportHtml" spellcheck="false"></textarea>
+    <div class="dialog-footer"><button id="copyHtml" class="button primary" type="button">Copier le HTML</button></div>
+  </dialog>
+
+  <template id="courseTemplate">
+    <article class="course-row">
+      <input class="course-checkbox" type="checkbox" aria-label="Sélectionner le cours">
+      <div class="course-text">
+        <div class="course-code"></div>
+        <div class="course-title"></div>
+        <div class="course-badge-line"><span class="course-category"></span><span class="course-new">Nouveau</span></div>
+        <div class="course-meta"></div>
+      </div>
+      <label class="course-image-label" title="Ajouter une image pour ce cours">A<input class="course-image-input" type="file" accept="image/*"></label>
+      <div class="course-link-wrap"><input class="course-link-input" type="url" placeholder="Lien UniPop pour ce cours"></div>
+    </article>
+  </template>
+
+  <script src="app.js?v=5"></script>
+</body>
+</html>
