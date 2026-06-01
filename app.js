@@ -514,13 +514,13 @@ function mailjetFooter() {
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#55b9b8;border-collapse:collapse;width:100%;">
               <tr>
                 <td align="center" style="padding:24px 28px 14px;text-align:center;">
-                  <a href="https://www.facebook.com/unipop.lu" target="_blank" rel="noopener" style="text-decoration:none;margin:0 10px;display:inline-block;">
+                  <a href="https://www.facebook.com/unipopluxembourg/" target="_blank" rel="noopener" style="text-decoration:none;margin:0 10px;display:inline-block;">
                     <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="42" height="42" style="display:inline-block;border:0;outline:none;text-decoration:none;border-radius:50%;">
                   </a>
-                  <a href="https://www.instagram.com/unipop_luxembourg/" target="_blank" rel="noopener" style="text-decoration:none;margin:0 10px;display:inline-block;">
+                  <a href="https://www.instagram.com/unipopluxembourg/" target="_blank" rel="noopener" style="text-decoration:none;margin:0 10px;display:inline-block;">
                     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="42" height="42" style="display:inline-block;border:0;outline:none;text-decoration:none;border-radius:50%;">
                   </a>
-                  <a href="https://www.linkedin.com/company/unipop-luxembourg/" target="_blank" rel="noopener" style="text-decoration:none;margin:0 10px;display:inline-block;">
+                  <a href="https://lu.linkedin.com/company/universit%C3%A9-populaire-luxembourg" target="_blank" rel="noopener" style="text-decoration:none;margin:0 10px;display:inline-block;">
                     <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn" width="42" height="42" style="display:inline-block;border:0;outline:none;text-decoration:none;border-radius:50%;">
                   </a>
                 </td>
