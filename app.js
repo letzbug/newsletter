@@ -442,10 +442,14 @@ $('previewBtn').addEventListener('click', () => {
   renderBlocksEditor();
   renderPreview();
 
-  const preview = $('newsletterPreview');
-  if (preview) {
-    preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  const previewElement = document.querySelector('.newsletter-preview');
+
+if (!previewElement) {
+  alert('Aperçu introuvable');
+  return;
+}
+
+const previewHtml = previewElement.outerHTML;
 });
 $('closeDialog').addEventListener('click', () => $('exportDialog').close());
 $('copyHtml').addEventListener('click', async () => { await navigator.clipboard.writeText($('exportHtml').value); alert('HTML copié.'); });
