@@ -372,4 +372,26 @@
   .add-placeholder{
     box-shadow:0 12px 26px rgba(7,23,70,.10);
   }
+
+  .sidebar-logo{
+  width:48px !important;
+  height:48px !important;
+  min-width:48px !important;
+  min-height:48px !important;
+  max-width:48px !important;
+  max-height:48px !important;
+  border-radius:12px;
+  overflow:hidden;
+  padding:0 !important;
+  background:#071746;
+}
+
+.sidebar-logo img{
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:cover !important;
+  display:block !important;
+  border-radius:12px;
 }
