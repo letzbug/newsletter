@@ -23,6 +23,18 @@
   align-items:center;
 }
 
+.sidebar-logo img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    border-radius:12px;
+    background:#0d1f59;
+    padding:4px;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.25),
+        0 0 12px rgba(94,189,190,.15);
+}
+
 .preview-heading{
   width:100%;
   max-width:760px;
