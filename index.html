@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Newsletter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="nav">
+      <div class="brand-mark">U</div>
+      <div class="nav-dot active">▦</div>
+      <div class="nav-dot">▤</div>
+      <div class="nav-dot">◉</div>
+      <div class="nav-spacer"></div>
+      <div class="avatar">FG</div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <h1>Newsletter</h1>
+          <p>Builder UniPop avec import JSON, sélection des cours et export HTML Mailjet.</p>
+        </div>
+        <div class="top-actions">
+          <button id="refreshBtn" class="btn ghost">↻ Actualiser JSON</button>
+          <button id="saveBtn" class="btn ghost">💾 Enregistrer</button>
+          <button id="exportBtn" class="btn primary">Exporter HTML</button>
+        </div>
+      </header>
+
+      <section class="grid">
+        <div class="panel left-panel">
+          <section class="card">
+            <div class="card-header">
+              <div>
+                <h2>1. Sélectionner les cours</h2>
+                <p id="jsonStatus">Chargement du fichier JSON…</p>
+              </div>
+              <span id="courseCount" class="pill">0</span>
+            </div>
+
+            <div class="filters">
+              <input id="searchInput" type="search" placeholder="Rechercher un cours, formateur, catégorie…" />
+              <select id="categoryFilter">
+                <option value="">Toutes les catégories</option>
+              </select>
+              <select id="newFilter">
+                <option value="all">Tous les cours</option>
+                <option value="new">Nouveaux seulement</option>
+                <option value="selected">Sélectionnés</option>
+              </select>
+            </div>
+
+            <div class="date-row">
+              <label>
+                Nouveaux depuis
+                <input id="sinceDate" type="date" />
+              </label>
+            </div>
+
+            <div id="coursesList" class="course-list"></div>
+          </section>
+
+          <section class="card">
+            <h2>2. Ajouter un bloc</h2>
+            <div class="block-buttons">
+              <button data-block="text">Texte</button>
+              <button data-block="imageText">Image + texte</button>
+              <button data-block="news">Actualité</button>
+              <button data-block="event">Événement</button>
+              <button data-block="quote">Citation</button>
+              <button data-block="button">Bouton</button>
+            </div>
+            <div id="blocksEditor" class="blocks-editor"></div>
+          </section>
+
+          <section class="card">
+            <h2>3. Paramètres</h2>
+            <label>Titre de la newsletter</label>
+            <input id="newsletterTitle" value="Les nouveautés UniPop" />
+            <label>Sous-titre</label>
+            <input id="newsletterSubtitle" value="Découvrez nos prochains cours et actualités." />
+            <label>Image header</label>
+            <input id="heroImage" value="https://raw.githubusercontent.com/letzbug/signage/bd15a5eddb1f8b2d7201c0db854fe107c97cd09e/assets/unipop-header.png" />
+            <label>URL catalogue</label>
+            <input id="catalogUrl" value="https://www.unipop.lu" />
+          </section>
+        </div>
+
+        <div class="panel preview-panel">
+          <div class="preview-title">Aperçu de la newsletter</div>
+          <div id="newsletterPreview" class="newsletter-preview"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="exportDialog">
+    <div class="dialog-head">
+      <h2>HTML Mailjet</h2>
+      <button id="closeDialog">×</button>
+    </div>
+    <p>Copie ce code dans Mailjet → bloc HTML.</p>
+    <textarea id="exportHtml" spellcheck="false"></textarea>
+    <div class="dialog-actions">
+      <button id="copyHtml" class="btn primary">Copier le HTML</button>
+      <button id="downloadHtml" class="btn ghost">Télécharger .html</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
