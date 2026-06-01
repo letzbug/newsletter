@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Newsletter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-nav">
+      <div class="u-logo">U</div>
+      <button class="nav-item active">▦<span>Cours</span></button>
+      <button class="nav-item">▤<span>Blocs</span></button>
+      <button class="nav-item">◈<span>Design</span></button>
+      <div class="nav-spacer"></div>
+      <button class="nav-item">⚙<span>Paramètres</span></button>
+      <div class="avatar">FG</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="title-wrap">
+          <div class="mini-logo">U</div>
+          <h1>Newsletter</h1>
+        </div>
+        <div class="top-actions">
+          <button id="previewBtn" class="btn ghost">👁 Aperçu</button>
+          <button id="saveBtn" class="btn ghost">💾 Enregistrer</button>
+          <button id="exportBtn" class="btn primary">⬇ Exporter HTML</button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <section class="left-column">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>1. Sélectionner les cours UniPop</h2>
+                <p id="jsonStatus">Chargement des données…</p>
+              </div>
+              <span class="status-pill">UniPop uniquement</span>
+            </div>
+
+            <div class="filter-row">
+              <input id="searchInput" type="search" placeholder="Rechercher un cours…" />
+              <select id="categoryFilter"><option value="">Toutes catégories</option></select>
+            </div>
+            <div class="mini-row">
+              <span id="courseCount">0 cours disponibles</span>
+              <select id="sortSelect">
+                <option value="date">Trier par : Date</option>
+                <option value="title">Trier par : Titre</option>
+                <option value="category">Trier par : Catégorie</option>
+              </select>
+            </div>
+
+            <div id="coursesList" class="course-list"></div>
+            <div class="selection-footer"><span id="selectedCount">0 cours sélectionné</span><button id="clearSelection" type="button">Tout désélectionner</button></div>
+          </div>
+
+          <div class="panel">
+            <h2>2. Ajouter un bloc</h2>
+            <div class="block-grid">
+              <button data-block="text">T<br><span>Texte</span></button>
+              <button data-block="imageText">▧<br><span>Image + Texte</span></button>
+              <button data-block="news">▤<br><span>Actualité</span></button>
+              <button data-block="event">☷<br><span>Événement</span></button>
+              <button data-block="quote">❝<br><span>Citation</span></button>
+              <button data-block="button">▭<br><span>Bouton</span></button>
+            </div>
+            <div id="blocksEditor" class="blocks-editor"></div>
+          </div>
+
+          <div class="panel">
+            <h2>3. Paramètres</h2>
+            <label>Titre de la newsletter</label>
+            <input id="newsletterTitle" value="Les nouveautés UniPop" />
+            <label>Sous-titre</label>
+            <input id="newsletterSubtitle" value="Découvrez les cours et actualités à ne pas manquer." />
+          </div>
+        </section>
+
+        <section class="preview-column">
+          <h2 class="preview-label">Aperçu de la newsletter</h2>
+          <div id="newsletterPreview" class="newsletter-preview"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="exportDialog">
+    <div class="dialog-head"><h2>HTML Mailjet</h2><button id="closeDialog">×</button></div>
+    <p>Copie ce code dans Mailjet en mode HTML.</p>
+    <textarea id="exportHtml" spellcheck="false"></textarea>
+    <div class="dialog-actions"><button id="copyHtml" class="btn primary">Copier le HTML</button></div>
+  </dialog>
+
+  <template id="courseTpl">
+    <article class="course-item">
+      <input class="course-check" type="checkbox" />
+      <div class="course-content">
+        <div class="course-code"></div>
+        <div class="course-title"></div>
+        <div class="course-badges"><span class="category-badge"></span><span class="new-badge">Nouveau</span></div>
+        <div class="course-meta"></div>
+      </div>
+      <div class="image-picker">
+        <label class="image-label">A<input class="image-input" type="file" accept="image/*" /></label>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
