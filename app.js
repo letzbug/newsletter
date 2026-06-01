@@ -314,7 +314,7 @@ function selectedCourses() {
 }
 
 function courseUrl(course) {
-  return clean(courseLinks[course.id] || course.link || 'https://www.unipop.lu');
+  return 'https://www.unipop.lu/?organizerName=UniPop';
 }
 
 function truncateText(value, maxLength) {
