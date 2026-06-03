@@ -1,4 +1,4 @@
-const DATA_URL = 'https://raw.githubusercontent.com/letzbug/signage/bd15a5eddb1f8b2d7201c0db854fe107c97cd09e/data/trainings.json';
+const DATA_URL = 'https://raw.githubusercontent.com/letzbug/signage/main/data/trainings.json';
 const HERO_IMAGE = 'https://raw.githubusercontent.com/letzbug/newsletter/d6518bf5a169afb92a3e92af307c2ab0a60d200f/assets/Newsletter_Header.png';
 const UNIPOP_CATALOG_URL = 'https://www.unipop.lu/?organizerName=UniPop';
 const STORAGE_KEY = 'newsletter_unipop_v6_mailjet_preview';
