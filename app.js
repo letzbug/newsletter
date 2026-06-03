@@ -959,4 +959,17 @@ $('copyHtml').addEventListener('click', async () => { await navigator.clipboard.
 loadState();
 renderBlocksEditor();
 renderPreview();
+
+// Initial laden
 loadCourses();
+
+// JSON automatisch alle 10 Minuten neu laden
+// 600000 ms = 10 Minuten
+setInterval(async () => {
+  try {
+    await loadCourses();
+    console.log('[Newsletter] JSON aktualisiert:', new Date().toLocaleTimeString());
+  } catch (err) {
+    console.error('[Newsletter] Fehler beim automatischen Aktualisieren:', err);
+  }
+}, 600000);
