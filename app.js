@@ -936,7 +936,7 @@ function mailjetFooter() {
                         <a href="mailto:info@unipop.lu" style="color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;">Contact</a>
                       </td>
                       <td align="center" style="font-family:Arial,Helvetica,sans-serif;">
-                        <a href="https://www.unipop.lu" style="color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;">FAQ</a>
+                        <a href="https://www.unipop.lu/faq/" style="color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;">FAQ</a>
                       </td>
                       <td align="right" style="font-family:Arial,Helvetica,sans-serif;">
                         <a href="https://www.unipop.lu" style="color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;">unipop.lu</a>
