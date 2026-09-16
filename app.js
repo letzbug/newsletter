@@ -836,7 +836,7 @@ function mailjetContentBlock(block, mailjetExport = false) {
   block = normalizeBlock(block);
 
   const title = esc(block.title || defaultBlockTypeLabel(block.type));
-  const text = esc(block.text || '');
+  const text = esc(block.text || '').replace(/\r?\n/g, '<br>');
   const imageWidth = Math.max(25, Math.min(100, parseInt(block.imageWidth || '100', 10) || 100));
   const position = ['top', 'left', 'right'].includes(block.imagePosition) ? block.imagePosition : 'top';
   const target = (block.clickable !== false) ? blockTargetUrl(block) : '';
