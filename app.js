@@ -354,15 +354,28 @@ function fillCategories() {
   select.value = current;
 }
 
+function isEttelbruckCourse(course) {
+  // Inspecter uniquement les champs de lieu, pas la description du cours.
+  const raw = course.raw || {};
+  const locations = [
+    course.place, raw.site, raw.lieu, raw.location, raw.adresse,
+    raw.localisation, raw.adresseCours, raw.salle, raw.SALLE
+  ];
+  return locations.some(value => {
+    const text = typeof value === 'object' ? JSON.stringify(value || {}) : clean(value);
+    return /ettelbr(?:uck|ück)/i.test(text);
+  });
+}
+
 function filteredCourses() {
   const query = $('searchInput').value.toLowerCase();
   const category = $('categoryFilter').value;
-  const newOnly = $('newFilter').value === 'new';
+  const courseMode = $('newFilter').value;
   const sort = $('sortSelect').value;
   const rows = allCourses.filter(course => {
     const rawText = JSON.stringify(course.raw || {});
     const haystack = [course.code, course.title, course.category, course.date, course.place, course.trainer, course.description, rawText].join(' ').toLowerCase();
-    return haystack.includes(query) && (!category || course.category === category) && (!newOnly || isNewCourse(course));
+    return haystack.includes(query) && (!category || course.category === category) && (courseMode !== 'new' || isNewCourse(course)) && (courseMode !== 'ettelbruck' || isEttelbruckCourse(course));
   });
   rows.sort((a, b) => {
     if (sort === 'title') return a.title.localeCompare(b.title, 'fr');
